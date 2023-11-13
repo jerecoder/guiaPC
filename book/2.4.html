@@ -3,8 +3,7 @@
     <head>
         <!-- Book generated using mdBook -->
         <meta charset="UTF-8">
-        <title>Page not found - Guía de Programacion Competitiva</title>
-        <base href="/">
+        <title>Template de C++ - Guía de Programacion Competitiva</title>
 
 
         <!-- Custom HTML head -->
@@ -91,7 +90,7 @@
 
         <nav id="sidebar" class="sidebar" aria-label="Table of contents">
             <div class="sidebar-scrollbox">
-                <ol class="chapter"><li class="chapter-item expanded "><a href="preface.html"><strong aria-hidden="true">1.</strong> Prefacio</a></li><li class="chapter-item expanded "><a href="introduction_1.html"><strong aria-hidden="true">2.</strong> Introduccion</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="2.1.html"><strong aria-hidden="true">2.1.</strong> Lenguajes de programación</a></li><li class="chapter-item expanded "><a href="2.2.html"><strong aria-hidden="true">2.2.</strong> Entrada y salida</a></li><li class="chapter-item expanded "><a href="2.3.html"><strong aria-hidden="true">2.3.</strong> Números y cómo representarlos</a></li><li class="chapter-item expanded "><a href="2.4.html"><strong aria-hidden="true">2.4.</strong> Template de C++</a></li><li class="chapter-item expanded "><a href="2.5.html"><strong aria-hidden="true">2.5.</strong> Cómo Practicar</a></li></ol></li></ol>
+                <ol class="chapter"><li class="chapter-item expanded "><a href="preface.html"><strong aria-hidden="true">1.</strong> Prefacio</a></li><li class="chapter-item expanded "><a href="introduction_1.html"><strong aria-hidden="true">2.</strong> Introduccion</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="2.1.html"><strong aria-hidden="true">2.1.</strong> Lenguajes de programación</a></li><li class="chapter-item expanded "><a href="2.2.html"><strong aria-hidden="true">2.2.</strong> Entrada y salida</a></li><li class="chapter-item expanded "><a href="2.3.html"><strong aria-hidden="true">2.3.</strong> Números y cómo representarlos</a></li><li class="chapter-item expanded "><a href="2.4.html" class="active"><strong aria-hidden="true">2.4.</strong> Template de C++</a></li><li class="chapter-item expanded "><a href="2.5.html"><strong aria-hidden="true">2.5.</strong> Cómo Practicar</a></li></ol></li></ol>
             </div>
             <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
         </nav>
@@ -174,14 +173,162 @@
 
                 <div id="content" class="content">
                     <main>
-                        <h1 id="document-not-found-404"><a class="header" href="#document-not-found-404">Document not found (404)</a></h1>
-<p>This URL is invalid, sorry. Please use the navigation bar or search to continue.</p>
+                        <h1 id="template-de-c"><a class="header" href="#template-de-c">Template de C++</a></h1>
+<p>Un aspecto clave de la programación competitiva es el tiempo: si tenés una solución correcta para un problema, pero te lleva horas implementarla, entonces estás perdiendo tiempo que podrías utilizar para pensar en otros problemas. Comparto mi template, comentada con explicaciones.</p>
+<h2 id="macros"><a class="header" href="#macros">Macros</a></h2>
+<pre><code class="language-cpp">#define forn(i, n) for (tint i = 0; i &lt; tint(n); i++)
+#define forsn(i, s, n) for (tint i = s; i &lt; tint(n); i++)
+#define dforn(i, n) for (tint i = tint(n) - 1; i &gt;= 0; i--)
+#define dforsn(i, s, n) for (tint i = tint(n) - 1; i &gt;= s; i--)
+#define sz(x) tint(x.size())
+#define all(x) x.begin(), x.end()
+#define DBG(x) cerr &lt;&lt; #x &lt;&lt; &quot; = &quot; &lt;&lt; x &lt;&lt; endl
+</code></pre>
+<ul>
+<li><strong>forn(i, n)</strong> - es un for que recorre los numeros desde el 0 hasta el n-1, la i es un placeholder para la variable de iteración.</li>
+<li><strong>forsn(i, s, n)</strong> - es lo mismo solo que, en vez de arrancar en 0, arranca en s.</li>
+<li><strong>dforn(i, n)</strong> - mismo rango que forn solo que recorre el for en el orden opuesto.</li>
+<li><strong>dforsn(i, s, n)</strong> - mismo rango que forsn pero recorre en orden opuesto.</li>
+<li><strong>sz(x)</strong> - consigue el tamaño de la variable y castea a tint (se explica más adelante).</li>
+<li><strong>all(x)</strong> - representa los iteradores de inicio y final de una variable, lo que permite ordenar un vector de la siguiente forma sort(all(vector)).</li>
+<li><strong>DBG(x)</strong> - printea en la consola de error el nombre de la variable y al lado su valor. Es especialmente util para debuggear.</li>
+</ul>
+<h2 id="otras-abreviaciones"><a class="header" href="#otras-abreviaciones">Otras abreviaciones</a></h2>
+<pre><code class="language-cpp">using namespace std;
+using tint = long long;
+using vi = vector&lt;tint&gt;;
+using pii = pair&lt;tint, tint&gt;;
+</code></pre>
+<ul>
+<li><strong>using namespace std</strong> - se usa para no tener que andar escribiendo std:cout, std:cin, etc. Es una mala practica, pero como estamos en programacion competitiva eso no nos importa.</li>
+<li><strong>tint</strong> - define el type of int, o tipo de numero que vamos a utilizar en el problema. Esto es para evitar cometer errores de tipo y acostumbrarse a escribir tint, en vez de tener que pensar cada vez que escribimos una variable.</li>
+<li><strong>vi</strong> - vector de tints.</li>
+<li><strong>pii</strong> - par de tints.</li>
+</ul>
+<h2 id="optimizacion-de-inputoutput"><a class="header" href="#optimizacion-de-inputoutput">Optimizacion de Input/Output</a></h2>
+<pre><code class="language-cpp">inline void fastIO()
+{
+    ios_base::sync_with_stdio(false);
+    cin.tie(NULL);
+}
+</code></pre>
+<p>Esta función suele ser llamada en la primera línea del main en C++, se encarga de optimizar <strong>std::cin</strong> y <strong>std::cout</strong>, que por default son lentos.</p>
+<h2 id="funciones-para-debuggear"><a class="header" href="#funciones-para-debuggear">Funciones para debuggear</a></h2>
+<p>chmax y chmin 
+La idea de estas funciones es generalizar funciones nativas del lenguaje como +=, &amp;= o |=. chmax(variable, valor) actualiza a la variable de esta forma: variable = max(variable, valor). chmin hace lo mismo pero con el minimo.</p>
+<pre><code class="language-cpp">template &lt;typename T&gt;
+inline void chmax(T &amp;lhs, T rhs)
+{
+    lhs = max(lhs, rhs);
+}
+
+template &lt;typename T&gt;
+inline void chmin(T &amp;lhs, T rhs)
+{
+    lhs = min(lhs, rhs);
+}
+</code></pre>
+<h2 id="cout-para-vectores-y-pares"><a class="header" href="#cout-para-vectores-y-pares">cout para vectores y pares</a></h2>
+<pre><code class="language-cpp">// printea pairs, sirve para debuggear
+template &lt;typename T, typename U&gt;
+ostream &amp;operator&lt;&lt;(ostream &amp;os, const pair&lt;T, U&gt; &amp;p)
+{
+    os &lt;&lt; &quot;(&quot; &lt;&lt; p.first &lt;&lt; &quot;, &quot; &lt;&lt; p.second &lt;&lt; &quot;)&quot;;
+    return os;
+}
+
+// printea vectores, sirve para debuggear
+template &lt;typename T&gt;
+ostream &amp;operator&lt;&lt;(ostream &amp;os, const vector&lt;T&gt; &amp;v)
+{
+    os &lt;&lt; &quot;[&quot;;
+    forn(i, sz(v))
+    {
+        if (i &gt; 0)
+            os &lt;&lt; &quot;, &quot;;
+        os &lt;&lt; v[i];
+    }
+    os &lt;&lt; &quot;]&quot;;
+    return os;
+}
+</code></pre>
+<h2 id="template-completa"><a class="header" href="#template-completa">Template completa</a></h2>
+<pre><code class="language-cpp">#include &lt;bits/stdc++.h&gt;
+#define forn(i, n) for (tint i = 0; i &lt; tint(n); i++)
+#define forsn(i, s, n) for (tint i = s; i &lt; tint(n); i++)
+#define dforn(i, n) for (tint i = tint(n) - 1; i &gt;= 0; i--)
+#define dforsn(i, s, n) for (tint i = tint(n) - 1; i &gt;= s; i--)
+#define sz(x) tint(x.size())
+#define all(x) x.begin(), x.end()
+#define DBG(x) cerr &lt;&lt; #x &lt;&lt; &quot; = &quot; &lt;&lt; x &lt;&lt; endl
+
+using namespace std;
+
+using tint = long long;
+using vi = vector&lt;tint&gt;;
+using pii = pair&lt;tint, tint&gt;;
+
+inline void fastIO() {
+  ios_base::sync_with_stdio(false);
+  cin.tie(NULL);
+}
+
+inline string YN(bool x, string y = &quot;YES&quot;, string n = &quot;NO&quot;) { return (x ? y : n); }
+
+template &lt;typename T&gt;
+inline void chmax(T &amp;lhs, T rhs) {
+  lhs = max(lhs, rhs);
+}
+
+template &lt;typename T&gt;
+inline void chmin(T &amp;lhs, T rhs) {
+  lhs = min(lhs, rhs);
+}
+
+template &lt;typename T, typename U&gt;
+ostream &amp;operator&lt;&lt;(ostream &amp;os, const pair&lt;T, U&gt; &amp;p) {
+  os &lt;&lt; &quot;(&quot; &lt;&lt; p.first &lt;&lt; &quot;, &quot; &lt;&lt; p.second &lt;&lt; &quot;)&quot;;
+  return os;
+}
+
+template &lt;typename T&gt;
+ostream &amp;operator&lt;&lt;(ostream &amp;os, const vector&lt;T&gt; &amp;v) {
+  os &lt;&lt; &quot;[&quot;;
+  forn(i, sz(v)) {
+    if (i &gt; 0) os &lt;&lt; &quot;, &quot;;
+    os &lt;&lt; v[i];
+  }
+  os &lt;&lt; &quot;]&quot;;
+  return os;
+}
+
+template &lt;typename T, size_t N&gt;
+ostream &amp;operator&lt;&lt;(ostream &amp;os, const array&lt;T, N&gt; &amp;v) {
+  os &lt;&lt; &quot;[&quot;;
+  forn(i, N) {
+    if (i &gt; 0) os &lt;&lt; &quot;, &quot;;
+    os &lt;&lt; v[i];
+  }
+  os &lt;&lt; &quot;]&quot;;
+  return os;
+}
+
+int main(){
+    fastIO();
+}
+</code></pre>
 
                     </main>
 
                     <nav class="nav-wrapper" aria-label="Page navigation">
                         <!-- Mobile navigation buttons -->
+                            <a rel="prev" href="2.3.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
 
+                            <a rel="next prefetch" href="2.5.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
 
                         <div style="clear: both"></div>
                     </nav>
@@ -189,7 +336,13 @@
             </div>
 
             <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                    <a rel="prev" href="2.3.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
 
+                    <a rel="next prefetch" href="2.5.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
             </nav>
 
         </div>

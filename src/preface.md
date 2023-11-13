@@ -1,0 +1,3 @@
+# Prefacio
+
+El propósito de este documento es dar una idea general de lo que es la programación competitiva e interesar a los estudiantes de grado de la Universidad de San Andrés en participar en este maravilloso deporte mental. Este documento de ninguna manera es completo, ya que hay una cantidad casi infinita de temas que podrían aparecer en una competencia. Sin embargo, nuestro objetivo es ofrecer una visión general de los temas más importantes, junto con soluciones a problemas clásicos y algunos otros difíciles. Casi todos los problemas se tomarán de [CSES](https://cses.fi/), y recomendamos encarecidamente que el lector implemente todas las soluciones que comprenda.
