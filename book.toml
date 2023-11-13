@@ -1,0 +1,6 @@
+[book]
+authors = ["jerecoder"]
+language = "en"
+multilingual = false
+src = "src"
+title = "Guia de Programacion Competitiva"
